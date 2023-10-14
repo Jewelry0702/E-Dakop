@@ -21,6 +21,28 @@ class TrafficTicketForm extends StatefulWidget {
 
 class _TrafficTicketFormState extends State<TrafficTicketForm> {
   // Define variables to store user input
+  List<String> items = [
+    "No helmet",
+    "illegal parking",
+    "no license",
+    "pangit",
+    "dfufg",
+    "hffweurfh",
+    "uewffuef",
+    "euwfhfie",
+    "ejdffhkjef",
+    "jreogiu",
+    "iefoeif",
+    "ikfjeowif",
+    "fahefhef",
+    "fjeahiofeg",
+    "fheriheroighadshgar"
+  ];
+  final Map<String, bool> itemChecked = {};
+
+  bool valuefirst = false;
+  bool valuesecond = false;
+
   String driverName = '';
   String address = '';
   String dlPermitNo = '';
@@ -35,6 +57,14 @@ class _TrafficTicketFormState extends State<TrafficTicketForm> {
   bool underProtest = false;
 
   @override
+  void initState() {
+    super.initState();
+    for (var item in items) {
+      itemChecked[item] = false;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     TextEditingController _dateController = TextEditingController();
     TextEditingController _nameController = TextEditingController();
@@ -42,18 +72,19 @@ class _TrafficTicketFormState extends State<TrafficTicketForm> {
         appBar: AppBar(
           title: Text('Traffic Citation Ticket'),
         ),
-        body: SafeArea(
-          child: Column(
+        body: ListView(children: [
+          Column(
             children: [
               const Center(
                 child: Text(
-                  "Traffic Citation Ticket",
+                  "\nRepublic of the philipines Office of City Mayor City Traffic Administrator City of Surigao Traffic Citation Ticket\n",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontFamily: "Times New Roman",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      fontStyle: FontStyle.normal,
-                      decoration: TextDecoration.underline),
+                    fontFamily: "Times New Roman",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    fontStyle: FontStyle.normal,
+                  ),
                 ),
               ),
               Container(
@@ -135,8 +166,448 @@ class _TrafficTicketFormState extends State<TrafficTicketForm> {
                   ],
                 ),
               ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Address: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "DL/Permit #: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "plate #: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "CR #: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Make: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Model: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Place of violation: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Address: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Owner: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Owner Address: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Center(
+                child: PopupMenuButton<String>(
+                  onSelected: (
+                    selectedItem,
+                  ) {
+                    setState(() {
+                      itemChecked[selectedItem] = !itemChecked[selectedItem]!;
+                    });
+                  },
+                  itemBuilder: (
+                    BuildContext context,
+                  ) {
+                    return items.map((item) {
+                      return PopupMenuItem<String>(
+                        value: item,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                              value: itemChecked[item],
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  itemChecked[item] = value!;
+                                });
+                              },
+                            ),
+                            Text(item),
+                          ],
+                        ),
+                      );
+                    }).toList();
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Violations"),
+                        Icon(Icons.arrow_drop_down),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Center(child: Text("\n")),
+              Center(
+                  child: Text(
+                "I hereby promise to appear of the City Traffic Administrator's Office before the expiration of the TCT/TOP to answer the above sated charges and to settle the corresponding fines. It is understood that if I fail to settle my case within 72 hours from the date of apprehension. I will be summoned and subsequently a corresponding case be filed against me.\n",
+                textAlign: TextAlign.center,
+              )),
+              CheckboxListTile(
+                controlAffinity: ListTileControlAffinity.trailing,
+                title: const Text('Admitted'),
+                value: this.valuefirst,
+                onChanged: (value) {
+                  setState(() {
+                    this.valuefirst = value!;
+                  });
+                },
+              ),
+              CheckboxListTile(
+                controlAffinity: ListTileControlAffinity.trailing,
+                title: const Text('Under protest'),
+                value: this.valuesecond,
+                onChanged: (value) {
+                  setState(() {
+                    this.valuesecond = value!;
+                  });
+                },
+              ),
+              Center(child: Text("Driver's Signature: \n")),
+              Center(child: Text("\n")),
+              Divider(color: Colors.black),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Officer name: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Designation: ",
+                      style: TextStyle(
+                        fontFamily: "Times New Roman",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 120,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintStyle: TextStyle(
+                              fontFamily: "Arial",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              fontStyle: FontStyle.normal,
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Center(child: Text("Officer's Signature: \n")),
+              Center(child: Text("\n")),
+              Divider(color: Colors.black),
+              Center(child: Text("\n ThankYou")),
             ],
           ),
-        ));
+        ]));
   }
 }
