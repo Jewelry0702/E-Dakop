@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(TrafficTicketApp());
-}
-
 class TrafficTicketApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -270,4 +266,5 @@ class _TrafficTicketFormState extends State<TrafficTicketForm> {
     _designationController.dispose();
     super.dispose();
   }
+  // ... (Your exis
 }
